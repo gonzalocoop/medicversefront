@@ -1,0 +1,22 @@
+<div style="text-align: center;">
+  <h1>Cantidad de Usuarios por Curso</h1>
+</div>
+
+<!-- Mensaje de error cuando no hay datos -->
+<div *ngIf="!hayDatos" class="error-message" style="text-align: center; color: red;">
+
+  <p>No hay usuarios registrados para mostrar.</p>
+</div>
+
+<!-- Gráfico, solo se muestra si hay datos -->
+<div *ngIf="hayDatos" class="chart-container" style="text-align: center;">
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [legend]="barChartLegend"
+    [type]="barChartType"
+  >
+  </canvas>
+</div>

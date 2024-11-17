@@ -1,0 +1,32 @@
+
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+    
+    <div>
+    <button mat-button [matMenuTriggerFor]="menuG5" style="color: white;" >
+      <mat-icon>recent_actors</mat-icon>Suscripciones de Usuarios</button>
+    </div>
+    <div class="right-menu">
+      <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+        <mat-icon>person</mat-icon>Usuario
+      </button>
+    </div>
+   </mat-toolbar>
+   <mat-menu #menuG5="matMenu">
+    <button mat-menu-item routerLink="/usuariossuscripciones" >Listar</button>
+    <button mat-menu-item routerLink="/usuariossuscripciones/nuevo">Registrar</button>
+   </mat-menu>
+   <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item > 
+      Rol:
+      <span>{{ role }}</span>
+    </button>
+    <button mat-menu-item > 
+      Usuario:
+      <span>{{ selectedUser }}</span>
+    </button>
+  </mat-menu>
+  <div [hidden]="route.children.length !== 0">
+    <app-listarusuariossuscripciones></app-listarusuariossuscripciones>
+  </div>
+  <router-outlet></router-outlet>
+  

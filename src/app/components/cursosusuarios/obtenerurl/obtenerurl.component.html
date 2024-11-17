@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="header">
+        <h1>🎉 Felicidades por completar el curso! 🎉</h1>
+    </div>
+    <div class="message">
+        <p><strong>Copie la URL para compartirla con sus amigos y vean lo que logró!!</strong></p>
+    </div>
+    <div class="url-container">
+        <p><strong>URL:</strong></p>
+        <p class="url">{{ cursoUsuario.url }}</p>
+    </div>
+    <div class="button-container">
+        <button mat-button [routerLink]="['/cursosusuarios/vercursos', cursoUsuario.id]">🌟 Volver a la lista 🌟</button>
+        <button mat-button color="primary" (click)="openImage()">🖼️ Ver Imagen del Certificado 🖼️</button>
+    </div>
+</div>

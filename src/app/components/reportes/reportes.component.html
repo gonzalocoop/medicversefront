@@ -1,0 +1,51 @@
+<div class="toolbar-container">
+    <mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+      
+      <div>
+        <button mat-button [matMenuTriggerFor]="menuG5" style="color: white;">	<mat-icon>assessment</mat-icon>Reportes Importantes</button>
+      </div>
+    </mat-toolbar>
+    <mat-toolbar class="custom-toolbar">
+      <div>
+        <button mat-button [matMenuTriggerFor]="menuG5Extra" style="color: white;">	<mat-icon>assessment</mat-icon>Reportes Extras</button>
+      </div>
+      <div class="right-menu">
+        <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+          <mat-icon>person</mat-icon>Usuario
+        </button>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <mat-menu #menuG5="matMenu">
+    <button mat-menu-item routerLink="/reportes/top3cursos">Obtener top 3 cursos con más comentarios</button>
+    <button mat-menu-item routerLink="/reportes/recaudaciontotal">Obtener recaudación total por tipo de suscripción</button>
+    <button mat-menu-item routerLink="/reportes/cursoscynoc">Obtener cantidad de cursos completados y no completados por usuario</button>
+    <button mat-menu-item routerLink="/reportes/cursosmasymenossucrip">Obtener el curso con más y menos suscripciones</button>
+    <button mat-menu-item routerLink="/reportes/comentariosnegativos">Obtener comentarios negativos por título de sesión</button>
+    <button mat-menu-item routerLink="/reportes/top5cursosesiones">Obtener top 5 cursos con mas sesiones y su categoria según este</button>
+  </mat-menu>
+  
+  <mat-menu #menuG5Extra="matMenu">
+    <button mat-menu-item routerLink="/reportes/tiempopromedio">Tiempo promedio de duración de video por sesión</button>
+    <button mat-menu-item routerLink="/reportes/contabilizarsesiones">Contabilizar las sesiones de cada curso</button>
+    <button mat-menu-item routerLink="/reportes/tituloduracion">Obtener título y duración de videos por sesión</button>
+    <button mat-menu-item routerLink="/reportes/usuariossuscripcion">Obtener usuarios por nombre de suscripción</button>
+    <button mat-menu-item routerLink="/reportes/porcentajeGeneralCursosUsuarios">Porcentaje general de cursos de usuarios completados y no completados</button>
+  </mat-menu>
+  <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item > 
+      Rol:
+      <span>{{ role }}</span>
+    </button>
+    <button mat-menu-item > 
+      Usuario:
+      <span>{{ selectedUser }}</span>
+    </button>
+  </mat-menu>
+  <div *ngIf="showWelcomeMessage" class="welcome-message">
+    Bienvenido al apartado de reportes de nuestra plataforma. Aquí podrás acceder a todos los informes importantes y funcionalidades extra!!
+</div>
+
+  <router-outlet></router-outlet>
+  

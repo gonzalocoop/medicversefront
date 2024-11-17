@@ -1,0 +1,34 @@
+<div class="container">
+    <div><h1>Registro de Roles</h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre del rol" formControlName="hnombre">
+                <mat-hint>Todo se guardará en mayus</mat-hint>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hnombre'].invalid && form.controls['hnombre'].touched">
+                  Llenar campo nombre correctamente
+                </mat-error>
+                <mat-error *ngIf="form.controls['hnombre'].hasError('maxlength') && form.controls['hnombre'].touched">
+                  Máximo 20 caracteres
+                </mat-error>
+                <mat-error *ngIf="form.controls['hnombre'].hasError('tituloRepetido') && form.controls['hnombre'].touched">
+                  El rol ya existe. Por favor, elige uno diferente
+                </mat-error>
+              </mat-form-field>
+            <br>
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

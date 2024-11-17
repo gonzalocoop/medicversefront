@@ -1,0 +1,114 @@
+.chart-container {
+
+    width: 35%; /* Ajusta este valor según sea necesario */
+  
+    margin: 0 auto; /* Centra el gráfico horizontalmente */
+  
+    padding: 15px; /* Espacio alrededor del gráfico */
+  
+    box-sizing: border-box;
+  
+   }
+  
+  
+  
+   @media (max-width: 768px) {
+  
+    .chart-container {
+  
+     width: 100%; /* Ajusta el ancho para pantallas más pequeñas */
+  
+     padding: 10px; /* Reduce el padding en pantallas más pequeñas */
+  
+    }
+  
+   }
+  
+   .title-container {
+  
+    text-align: center;
+  
+    margin-bottom: 40px; /* Increase the margin-bottom to move the title lower */
+  
+    margin-top: 60px;  /* Add a margin-top to further position it down the page */
+  
+   }
+  
+  
+  
+   /* Título principal */
+  h1 {
+    text-align: center;
+    color: #226c7f; /* Cambia este valor para el color del título */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+
+  .category-legend {
+    margin-top: 20px;
+    text-align: left;  /* Alinea el texto a la izquierda */
+    padding-left: 20px; /* Agrega espacio a la izquierda */
+  }
+  
+  .category-legend p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Reduce el margen inferior */
+  }
+  
+  .category-legend ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Reduce el margen entre los elementos */
+    font-size: 16px;
+  }
+  
+  .category-legend li span {
+    display: inline-block;
+    width: 25px;  /* Ajusta el tamaño del círculo */
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px; /* Centra el texto dentro del círculo */
+    font-weight: bold;
+  }
+  
+  .category-legend li span.bajo {
+    background-color: #4caf50; /* Verde */
+    padding: 5px 10px;  /* Ajusta el espacio interno del texto */
+  }
+  
+  .category-legend li span.medio {
+    background-color: #ff9800; /* Naranja */
+    padding: 5px 10px;  /* Ajusta el espacio interno del texto */
+  }
+  
+  .category-legend li span.alto {
+    background-color: #f44336; /* Rojo */
+    padding: 5px 10px;  /* Ajusta el espacio interno del texto */
+  }
+  
+  @media (max-width: 768px) {
+    .category-legend {
+      padding-left: 10px;
+    }
+  
+    .category-legend li {
+      font-size: 14px;
+    }
+  
+    .category-legend p {
+      font-size: 16px;
+    }
+  }
+  

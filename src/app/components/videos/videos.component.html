@@ -1,0 +1,32 @@
+
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+    
+    <div>
+    <button mat-button [matMenuTriggerFor]="menuG5" style="color: white;" >
+      <mat-icon>video_library</mat-icon>Videos</button>
+    </div>
+    <div class="right-menu">
+      <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+        <mat-icon>person</mat-icon>Usuario
+      </button>
+    </div>
+   </mat-toolbar>
+   <mat-menu #menuG5="matMenu">
+    <button mat-menu-item routerLink="/videos" >Listar</button>
+    <button mat-menu-item routerLink="/videos/nuevo">Registrar</button>
+   </mat-menu>
+   <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item > 
+      Rol:
+      <span>{{ role }}</span>
+    </button>
+    <button mat-menu-item > 
+      Usuario:
+      <span>{{ selectedUser }}</span>
+    </button>
+  </mat-menu>
+  <div [hidden]="route.children.length !== 0">
+    <app-listarvideos></app-listarvideos>
+  </div>
+  <router-outlet></router-outlet>
+  

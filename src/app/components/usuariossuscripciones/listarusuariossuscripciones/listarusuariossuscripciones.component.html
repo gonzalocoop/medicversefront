@@ -1,0 +1,87 @@
+
+<div *ngIf="verificar()">
+    <div><h1>Tabla De Usuario Suscripciones</h1></div>
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="c1">  
+           
+             <th mat-header-cell *matHeaderCellDef> Id </th>  
+           
+             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+           
+            </ng-container>
+           
+              
+            <ng-container matColumnDef="c2">
+           
+             <th mat-header-cell *matHeaderCellDef> Fecha Inicio </th>
+           
+             <td mat-cell *matCellDef="let element"> {{ element.fechaInicio | date: 'dd/MM/yyyy' }} </td>
+           
+            </ng-container>
+           
+            <ng-container matColumnDef="c3">
+           
+                <th mat-header-cell *matHeaderCellDef> Fecha Fin</th>
+              
+                <td mat-cell *matCellDef="let element"> {{ element.fechaFin | date: 'dd/MM/yyyy' }} </td>
+              
+               </ng-container>
+              
+              
+
+
+            <ng-container matColumnDef="c4">
+           
+                <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                <td mat-cell *matCellDef="let element"> {{ element.usu.username }} </td>
+
+              
+            </ng-container>
+
+            <ng-container matColumnDef="c5">
+                <th mat-header-cell *matHeaderCellDef> Suscripción </th>
+                <td mat-cell *matCellDef="let element"> {{ element.sus.nombre }} </td>
+              </ng-container>
+
+
+            
+           
+            <ng-container matColumnDef="accion01">
+           
+                <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+              
+                <td mat-cell *matCellDef="let element" (click)="eliminar(element.id)"> 
+                    <mat-icon>delete</mat-icon> 
+                </td>
+              
+            </ng-container>
+           
+            <ng-container matColumnDef="accion02">
+                
+                <th mat-header-cell *matHeaderCellDef> Modificar </th>
+              
+                <td mat-cell *matCellDef="let element"  [routerLink]="['ediciones',element.id]"> 
+                    <mat-icon>edit</mat-icon> 
+                </td >
+              
+            </ng-container>
+           
+           
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  
+           
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+           </table>
+           <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+           <br>
+           <!-- Paginator -->
+           <mat-paginator [length]="dataSource.data.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+            </mat-paginator>
+        
+    </div>
+</div>

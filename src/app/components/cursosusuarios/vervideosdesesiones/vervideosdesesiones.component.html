@@ -1,0 +1,26 @@
+<div>
+    <button mat-button [routerLink]="['/cursosusuarios/vercursos', idCursoUsuario]">Volver a la lista</button>
+</div>
+<div class="videos-wrapper">
+    <div *ngFor="let video of videos" class="video-card">
+      <div class="video-info">
+        <h2 class="video-title">{{ video.titulo }}</h2>
+        <p class="video-date"><strong>Fecha Agregado:</strong> {{ video.fechaAgregado | date }}</p>
+        <p class="video-duration"><strong>Duración:</strong> {{ video.duracion }} minutos</p>
+      </div>
+  
+      <div *ngIf="sanitizedVideoUrls[video.id]" class="video-frame-container">
+        <iframe
+          [src]="sanitizedVideoUrls[video.id]"
+          frameborder="0"
+          allowfullscreen
+          class="video-iframe">
+        </iframe>
+      </div>
+  
+      <div class="video-description-container" *ngIf="videoDetails[video.id]?.description">
+        <p class="video-description">{{ videoDetails[video.id].description }}</p>
+      </div>
+    </div>
+    
+</div>

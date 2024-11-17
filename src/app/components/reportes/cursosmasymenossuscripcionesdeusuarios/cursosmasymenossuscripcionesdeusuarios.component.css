@@ -1,0 +1,50 @@
+.chart-container {
+
+    width: 35%; /* Ajusta este valor según sea necesario */
+  
+    margin: 0 auto; /* Centra el gráfico horizontalmente */
+  
+    padding: 15px; /* Espacio alrededor del gráfico */
+  
+    box-sizing: border-box;
+  
+   }
+  
+  
+  
+   @media (max-width: 768px) {
+  
+    .chart-container {
+  
+     width: 100%; /* Ajusta el ancho para pantallas más pequeñas */
+  
+     padding: 10px; /* Reduce el padding en pantallas más pequeñas */
+  
+    }
+  
+   }
+  
+   .title-container {
+  
+    text-align: center;
+  
+    margin-bottom: 40px; /* Increase the margin-bottom to move the title lower */
+  
+    margin-top: 60px;  /* Add a margin-top to further position it down the page */
+  
+   }
+  
+  
+  
+   /* Título principal */
+   h1 {
+    text-align: center;
+    color: #226c7f; /* Cambia este valor para el color del título */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+   
+  

@@ -1,0 +1,96 @@
+/* Container for all video cards */
+.videos-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #e6f7ff; /* Soft celeste background for the whole section */
+  }
+  
+  /* Individual video card styling */
+  .video-card {
+    width: 320px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #007acc; /* Celeste border */
+  }
+  
+  /* Video information styling */
+  .video-info {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .video-title {
+    font-size: 1.4em;
+    color: #007acc; /* Celeste color for title */
+    margin: 0 0 10px;
+  }
+  
+  .video-date,
+  .video-duration {
+    font-size: 0.9em;
+    color: #2c3e50; /* Dark gray-blue for text */
+    margin: 2px 0;
+  }
+  
+  /* Video frame container */
+  .video-frame-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .video-iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 6px;
+    border: 2px solid #007acc;
+  }
+  
+  /* Description section */
+  .video-description-container {
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 6px;
+    color: #2c3e50;
+    font-size: 0.9em;
+    text-align: justify;
+  }
+  
+  .video-description {
+    margin: 0;
+  }
+
+/* Botón volver */
+button {
+    background-color: #ffffff; /* Blanco */
+    color: #1565c0; /* Azul */
+    border: 2px solid #1565c0; /* Bordes azul */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    margin-top: 20px;
+}
+
+/* Efecto hover para el botón */
+button:hover {
+    background-color: #1565c0; /* Cambia a azul al pasar el ratón */
+    color: #ffffff; /* Texto blanco en hover */
+}
+
+/* Sombra para el botón */
+button:focus {
+    outline: none; /* Quitar contorno por defecto */
+    box-shadow: 0 0 5px rgba(22, 50, 145, 0.5); /* Sombra en el enfoque */
+}

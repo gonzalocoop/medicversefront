@@ -1,0 +1,44 @@
+.toolbar-container {
+    display: flex;
+    
+  }
+  
+  .custom-toolbar {
+    background-color: #00838f;
+    color: white;
+  }
+  
+  .custom-menu-item {
+    color: white;
+  }
+  
+  .custom-menu-item:hover {
+    color: rgb(99, 12, 12);
+  }
+
+  .welcome-message {
+    background-color: #009688; /* Fondo celeste */
+    color: rgb(0, 0, 0); /* Texto en blanco */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    margin: 20px auto;
+    max-width: 80%;
+    border: 2px solid #ffffff; /* Borde blanco */
+}
+
+.welcome-message:hover {
+    background-color: #b2dfdb; /* Fondo más claro al pasar el mouse */
+    color: #090909; /* Color blanco más suave */
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.right-menu {
+  margin-left: auto; /* Empuja el menú de usuarios a la derecha */
+  background-color: #00838f; 
+  color: white; 
+}

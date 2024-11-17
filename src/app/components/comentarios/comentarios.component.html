@@ -1,0 +1,30 @@
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+    
+    <div>
+    <button mat-button [matMenuTriggerFor]="menuG5" style="color: white;" >
+      <mat-icon> comment</mat-icon>Comentarios</button>
+    </div>
+    <div class="right-menu">
+      <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+        <mat-icon>person</mat-icon>Usuario
+      </button>
+    </div>
+   </mat-toolbar>
+   <mat-menu #menuG5="matMenu">
+    <button mat-menu-item routerLink="/comentarios" >Listar</button>
+    <button mat-menu-item routerLink="/comentarios/nuevo">Registrar</button>
+   </mat-menu>
+   <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item > 
+      Rol:
+      <span>{{ role }}</span>
+    </button>
+    <button mat-menu-item > 
+      Usuario:
+      <span>{{ selectedUser }}</span>
+    </button>
+  </mat-menu>
+  <div [hidden]="route.children.length !== 0">
+    <app-listarcomentarios></app-listarcomentarios>
+  </div>
+  <router-outlet></router-outlet>

@@ -1,0 +1,39 @@
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+    <div>
+    <button mat-button [matMenuTriggerFor]="menuG5" style="color: white;" ><mat-icon >menu</mat-icon>Sección</button>
+    </div>
+    <div class="left-menu">
+        <button mat-button [routerLink]="['/homes']" style="color: white">
+            <mat-icon>home</mat-icon>Home
+          </button>
+    </div>
+    <div class="right-menu">
+        <button mat-button [matMenuTriggerFor]="menuSalir" style="color: white">
+          <mat-icon>person</mat-icon>Cerrar Cuenta
+        </button>
+      </div>
+</mat-toolbar>
+   <mat-menu #menuG5="matMenu">
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/video" >VideoPrueba</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/cursos" >Cursos</button>
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/roles">Roles</button>
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/suscripciones">Suscripciones</button>
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/sesiones">Sesiones</button>
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/videos">Videos</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/videosfav">Videos Favoritos</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/usuarios">Usuarios</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/cursosusuarios">Cursos de los Usuarios</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/usuariossuscripciones">Suscripciones de los Usuarios</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/cronogramas">Cronogramas</button>
+    <button mat-menu-item *ngIf="isAdmin() || isStudent()" routerLink="/comentarios">Comentarios</button>
+    <button mat-menu-item *ngIf="isAdmin()" routerLink="/reportes">Reportes</button>
+   </mat-menu>
+
+   <mat-menu #menuSalir="matMenu">
+    <button mat-menu-item routerLink="/iniciosesion" (click)="cerrar()" class="custom-menu-item">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </mat-menu>
+
+   <router-outlet></router-outlet>

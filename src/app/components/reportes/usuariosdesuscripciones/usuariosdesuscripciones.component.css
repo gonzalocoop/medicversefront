@@ -1,0 +1,94 @@
+/* Estilo general del contenedor */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9fafc; /* Fondo suave para el contenedor */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Sección de búsqueda */
+.search-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center; /* Centra la sección de búsqueda */
+}
+
+.mat-form-field {
+    width: 300px;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #3a7ea1; /* Azul más vibrante para el título */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Estilo de la tabla */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la tabla */
+}
+
+/* Encabezado de la tabla */
+.styled-table th {
+    background-color: #4f8bc9; /* Azul oscuro para el encabezado */
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Filas de la tabla */
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e3e6e8; /* Línea divisoria más clara */
+}
+
+/* Filas alternas */
+.styled-table tr:nth-child(even) {
+    background-color: #e9f2fb; /* Azul claro alterno para filas */
+}
+
+/* Efecto hover en las filas */
+.styled-table tr:hover {
+    background-color: #c5e3f6; /* Color de fondo al pasar el mouse */
+}
+
+/* Mensaje de resultados no encontrados */
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #d9534f; /* Rojo más suave para el mensaje */
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Botón de búsqueda */
+button {
+    background-color: #5cb85c; /* Verde suave para el botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para el botón */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #449d44; /* Color verde más oscuro al pasar el mouse */
+}

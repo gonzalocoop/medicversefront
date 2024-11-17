@@ -1,0 +1,113 @@
+
+<div class="container">
+    <div><h1>Registro de Cursos de Usuarios</h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Progreso</mat-label>
+                <input matInput placeholder="Progreso, no poner %" formControlName="hprogreso">
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hprogreso'].hasError('required') && form.controls['hprogreso'].touched">
+                  Llenar campo progreso correctamente
+                </mat-error>
+                <!-- Mostrar mensaje de error si no es un número -->
+                <mat-error *ngIf="form.controls['hprogreso'].hasError('pattern') && form.controls['hprogreso'].touched">
+                  Solo se permiten números positivos enteros o de dos decimales
+                </mat-error>
+                <mat-error *ngIf="form.controls['hprogreso'].hasError('maxlength') && form.controls['hprogreso'].touched">
+                  Máximo 6 caracateres 
+                </mat-error>
+                <mat-error *ngIf="form.controls['hprogreso'].hasError('max') && form.controls['hprogreso'].touched">
+                  Solo puedes poner máximo 100 de progreso
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Elige una Fecha de Inicio</mat-label>
+                <input matInput [matDatepicker]="pickerInicio" formControlName="hfechaInicio">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+                <mat-datepicker #pickerInicio></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfechaInicio'].invalid && form.controls['hfechaInicio'].touched">
+                  Llenar campo fecha de inicio correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Elige una Fecha de Final</mat-label>
+                <input matInput [matDatepicker]="pickerFinal" formControlName="hfechaFinal">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFinal"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFinal></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfechaFinal'].invalid && form.controls['hfechaFinal'].touched">
+                  Llenar campo fecha final correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="hestado">
+                  @for (m of listaEstados; track m) {
+                    <mat-option [value]="m.value">{{m.viewValue}}</mat-option>
+                  }
+                </mat-select>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hestado'].invalid && form.controls['hestado'].touched">
+                  Llenar campo estado correctamente
+                </mat-error>
+              </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>URL</mat-label>
+                <input matInput placeholder="URL" formControlName="hurl">
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hurl'].hasError('required') && form.controls['hurl'].touched">
+                  Llenar campo URL correctamente
+                </mat-error>
+                <mat-error *ngIf="form.controls['hurl'].hasError('maxlength') && form.controls['hurl'].touched">
+                  Máximo 80 caracteres
+                </mat-error>
+            </mat-form-field>  
+            <br>
+            <mat-form-field>
+                <mat-label>Curso</mat-label>
+                <mat-select formControlName="hcurso">
+                  @for (m of listaCursos; track m) {
+                    <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['hcurso'].hasError('required') && form.controls['hcurso'].touched">
+                  Llenar campo curso correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="husuario">
+                  @for (m of listaUsuarios; track m) {
+                    <mat-option [value]="m.id">{{m.username}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['husuario'].hasError('required') && form.controls['husuario'].touched">
+                  Llenar campo usuario correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+              
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

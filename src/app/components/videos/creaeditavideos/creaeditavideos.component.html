@@ -1,0 +1,91 @@
+
+<div class="container">
+    <div><h1>Registro de Videos</h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Título</mat-label>
+              <input matInput placeholder="Titulo" formControlName="htitulo">
+              <!-- Mostrar mensaje de error si el campo no es válido -->
+              <mat-error *ngIf="form.controls['htitulo'].hasError('required') && form.controls['htitulo'].touched">
+                Llenar campo título correctamente
+              </mat-error>
+              <mat-error *ngIf="form.controls['htitulo'].hasError('maxlength') && form.controls['htitulo'].touched">
+                Máximo 35 caracteres
+              </mat-error>
+              <mat-error *ngIf="form.controls['htitulo'].hasError('tituloRepetido') && form.controls['htitulo'].touched">
+                El video ya existe. Por favor, elige uno diferente
+              </mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>Elige una fecha (Fecha de Agregado)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="hfecha">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfecha'].invalid && form.controls['hfecha'].touched">
+                  Llenar campo fecha correctamente
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Duración (Minutos)</mat-label>
+                <input matInput placeholder="Duración/minutos" formControlName="hduracion">
+                <mat-hint>Se debe usar "." si se quiere especificar segundos. Ejm: 50.45 es 50 minutos con 45 segundos</mat-hint>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hduracion'].hasError('required') && form.controls['hduracion'].touched">
+                  Llenar campo duración correctamente
+                </mat-error>
+                <!-- Mostrar mensaje de error si no es un número -->
+                <mat-error *ngIf="form.controls['hduracion'].hasError('pattern') && form.controls['hduracion'].touched">
+                  Solo se permiten números positivos de dos decimales
+                </mat-error>
+                <mat-error *ngIf="form.controls['hduracion'].hasError('maxlength') && form.controls['hduracion'].touched">
+                  Máximo 6 caracateres (incluido la coma)
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>URL</mat-label>
+                <input matInput placeholder="URL" formControlName="hurl">
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hurl'].hasError('required') && form.controls['hurl'].touched">
+                  Llenar campo URL correctamente
+                </mat-error>
+                <mat-error *ngIf="form.controls['hurl'].hasError('maxlength') && form.controls['hurl'].touched">
+                  Máximo 20 caracteres
+                </mat-error>
+            </mat-form-field>  
+            <br>
+            <mat-form-field>
+                <mat-label>Sesión</mat-label>
+                <mat-select formControlName="hsesion">
+                  @for (m of listaSesiones; track m) {
+                    <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['hsesion'].hasError('required') && form.controls['hsesion'].touched">
+                  Llenar campo sesión correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+              
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

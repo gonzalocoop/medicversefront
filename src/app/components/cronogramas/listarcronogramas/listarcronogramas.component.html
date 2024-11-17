@@ -1,0 +1,37 @@
+<div *ngIf="verificar()">
+    <div>
+        <h1>Tabla De Cronogramas</h1>
+    </div>
+    <div class="curso-container">
+        <div *ngFor="let Cronogramas of pagedCronogramas" class="curso-card">
+            <mat-card class="curso-card__content">
+                <mat-card-header class="curso-card-header">
+                    <mat-card-title>{{ Cronogramas.curUsu.cur.titulo }}</mat-card-title>
+                    <mat-card-subtitle>Id del Cronograma: {{ Cronogramas.id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Fecha Limite:</strong> {{ Cronogramas.fechaLimite| date: 'dd/MM/yyyy' }}</p>
+                    <p><strong>Estado:</strong> {{ Cronogramas.estado }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button color="warn" *ngIf="isAdmin()" (click)="eliminar(Cronogramas.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" *ngIf="isAdmin()" [routerLink]="['ediciones', Cronogramas.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" [routerLink]="['verdetallecrono', Cronogramas.id]">
+                        <mat-icon> import_contacts</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+    <!-- Paginador -->
+    <mat-paginator [length]="Cronogramas.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

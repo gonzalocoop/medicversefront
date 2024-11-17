@@ -1,0 +1,28 @@
+.custom-toolbar {
+
+    background-color: #00838f; 
+  
+    color: white; 
+  
+   }
+  
+  
+  
+   .custom-menu-item {  
+  
+    color: white; 
+  
+    &:hover {
+  
+     color: rgb(99, 12, 12); 
+  
+    }
+  
+   }
+
+
+   .right-menu {
+    margin-left: auto; /* Empuja el menú de usuarios a la derecha */
+    background-color: #00838f; 
+    color: white; 
+  }

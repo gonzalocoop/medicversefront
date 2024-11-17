@@ -1,0 +1,44 @@
+<div *ngIf="verificar()">
+    <div>
+        <h1>Tabla De Cursos</h1>
+    </div>
+    <!-- Input para filtrar por duración -->
+    <div class="filtro-container">
+        <label>Filtrar por duración:</label>
+        <input type="number" min="0" [(ngModel)]="duracionFiltro" (input)="filtrarCursosPorDuracion()" placeholder="Ingrese duración en días" />
+    </div>
+    <div class="curso-container">
+        <div *ngFor="let curso of pagedCursos" class="curso-card">
+            <mat-card class="curso-card__content">
+                <mat-card-header class="curso-card-header">
+                    <mat-card-title>{{ curso.titulo }}</mat-card-title>
+                    <mat-card-subtitle>Id: {{ curso.id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Duración:</strong> {{ curso.duracion }} días</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button color="warn" *ngIf="isAdmin()" (click)="eliminar(curso.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" *ngIf="isAdmin()" [routerLink]="['ediciones', curso.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" [routerLink]="['descripciones', curso.id]">
+                        <mat-icon> import_contacts</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="postular(curso.id)">
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+    <!-- Paginador -->
+    <mat-paginator [length]="cursos.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

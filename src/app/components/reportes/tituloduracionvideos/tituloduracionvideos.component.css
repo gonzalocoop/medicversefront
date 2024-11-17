@@ -1,0 +1,89 @@
+/* Contenedor principal */
+.container {
+    width: 70%; /* Cambia este valor para alargar el contenedor */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Cambiar color de fondo del contenedor si lo deseas */
+    background-color: #f4f4f9; /* Cambiar aquí para otro color */
+  }
+  
+  /* Título principal */
+  h1 {
+    text-align: center;
+    color: #226c7f; /* Cambia este valor para el color del título */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  /* Tabla de datos */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-height: 400px; /* Cambia este valor para alargar la tabla */
+    overflow-y: auto;
+  }
+  
+  table th,
+  table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #226c7f; /* Cambia este valor para el color del encabezado */
+    color: white;
+    font-weight: 600;
+  }
+  
+  table td {
+    font-size: 1rem;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  table tbody tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Mensaje cuando no hay datos */
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #226c7f; /* Cambia este valor para el color del mensaje */
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    table th,
+    table td {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+  

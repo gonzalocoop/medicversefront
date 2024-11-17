@@ -1,0 +1,82 @@
+div {
+    margin: 20px;
+    background-color: #e3f2fd; 
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #1565c0; 
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.curso-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar las tarjetas */
+    gap: 16px; /* Espaciado entre las tarjetas */
+}
+
+.curso-card {
+    width: calc(33% - 16px); /* Ajustar el ancho de las tarjetas */
+}
+
+.curso-card__content {
+    background-color: white; /* Fondo blanco para las tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.curso-card-header {
+    background-color: #b7d0f5 !important; /* Fondo celeste para el encabezado */
+    border-top-left-radius: 8px; /* Bordes redondeados */
+    border-top-right-radius: 8px; /* Bordes redondeados */
+    padding: 16px; /* Espaciado interno */
+}
+
+
+
+/* Contenedor del filtro */
+.filtro-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo del label */
+.filtro-container label {
+    font-size: 16px;
+    color: #226c7f;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+/* Estilo del input */
+.filtro-container input[type="number"] {
+    width: 250px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.filtro-container input[type="number"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Placeholder styling for better readability */
+.filtro-container input[type="number"]::placeholder {
+    color: #888;
+    font-style: italic;
+}
+button {
+    color: #0f5194;
+  }

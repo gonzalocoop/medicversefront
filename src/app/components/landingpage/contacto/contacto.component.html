@@ -1,0 +1,127 @@
+<header>
+    <nav>
+    <div id='navBar' class="flex">
+        <img class="logo"src="assets/images/ic_zentech.png">
+        <div class="flex options">
+            <a routerLink="/landing"><div class="option first">Inicio</div></a>
+            <a routerLink="/landing/nosotros"><div class="option">Nosotros</div></a>
+            <a routerLink="/landing/servicios"><div class="option">Servicios</div></a>
+               
+            <a routerLink="/landing/planes"><div class="option">Planes</div></a>
+            <a routerLink="/landing/contacto"><div class="option">Contáctanos</div></a>
+            <a routerLink="/iniciosesion"><div class="option">Iniciar Sesion</div></a>
+        </div>
+    </div>
+    </nav>
+</header>
+<div id="loginOverlay" class="overlay">
+    <div class="container-overlay" id="container-overlay">
+        <span class="btnClose" id="closeBtn" >&#215;</span>
+        <div class="form-container registro">
+            <form>
+                <h1>Crea una cuenta</h1>
+                <div class="iconos">
+                    <a href="#" class="icon"><img src="assets/images/google.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/facebook.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/instagram.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/twitter.svg" alt=""></a>
+                </div>
+                <span>o usa tu email para el registro</span>
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Correo">
+                <input type="password" placeholder="Contraseña">
+                <button>Crear cuenta</button>
+            </form>
+        </div>
+        <div class="form-container login">
+            <form>
+                <h1>Ingresa</h1>
+                <div class="iconos">
+                    <a href="#" class="icon"><img src="assets/images/google.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/facebook.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/instagram.svg" alt=""></a>
+                    <a href="#" class="icon"><img src="assets/images/twitter.svg" alt=""></a>
+                </div>
+                <span>o usa tu correo y contraseña</span>
+                <input type="email" placeholder="Correo">
+                <input type="password" placeholder="Contraseña">
+                <a href="#">Olvidaste tu contraseña?</a>
+                <button>Iniciar sesión</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenido <br>de vuelta!</h1>
+                    <p>Ingresa tus datos para <br> obtener el acceso completo</p>
+                    <button class="hidden" id="login">Ingresar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hola!</h1>
+                    <p>Registrate para obtener el acceso completo <br> a todas las funcionalidades</p>
+                    <button class="hidden" id="registro">Registrate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="contactanos">
+    <div class="container">
+        <h1 class="title hide">Contactanos</h1>
+        <div class="cards">
+            <div class="card contacto hide left">
+                <img src="assets/images/ic_whatsapp.png" width="150" alt="">
+                <p>Whatsapp</p>
+                <button>Escribenos</button>
+            </div>
+            <div class="card contacto hide left">
+                <img src="assets/images/ic_instagram.png" width="150" alt="">
+                <p>Instagram</p>
+                <button>Visitanos</button>
+            </div>
+            <div class="card contacto hide left">
+                <img src="assets/images/ic_facebook.png" width="150" alt="">
+                <p class="media">Facebook</p>
+                <button>Visitanos</button>
+            </div>
+            <div class="form_consultas hide right">
+                <form action="">
+                    <input type="text" placeholder="Nombre" id="nombre">
+                    <input type="text" placeholder="Correo" id="email">
+                    <textarea name="" id="mensaje" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <button id="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<footer class="footer">
+    <div class="container-footer">
+        <div class="row">
+        <div class="footer-col">
+            <h4>Zentech</h4>
+            <ul>
+                <li><a routerLink="/landing/nosotros">Acerca de nosotros</a></li>
+                <li><a routerLink="/landing/servicios">Qué ofrecemos</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Más ayuda</h4>
+            <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Opciones de pago</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+            <a href="#"><img src="assets/images/ic_svg/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="assets/images/ic_svg/twitter-x.svg" alt="Twitter X"></a>
+            <a href="#"><img src="assets/images/ic_svg/ic_instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="assets/images/ic_svg/ic_linkedin.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+        </div>
+    </div>
+</footer>

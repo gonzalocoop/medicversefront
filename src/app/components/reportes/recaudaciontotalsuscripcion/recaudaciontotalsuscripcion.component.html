@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Reporte de Recaudación por Suscripción</h1>
+  
+    <!-- Formulario para seleccionar la suscripción y las fechas -->
+    <div class="form-group" id="nombresuscripcion">
+      <label for="suscripcion">Nombre de la Suscripción:</label>
+      <input type="text" id="suscripcion" [(ngModel)]="nombreSuscripcion" class="form-control" placeholder="Ingrese nombre de suscripción">
+    </div>
+  
+    <!-- Formulario para elegir la fecha de inicio -->
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Elige una Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="pickerInicio1" [(ngModel)]="fechaInicio" class="form-control" placeholder="DD/MM/YYYY">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerInicio1"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio1></mat-datepicker>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <!-- Mostrar mensaje de error si el campo no es válido -->
+        <mat-error *ngIf="!fechaInicio && fechaInicio !== ''">Llenar campo fecha de inicio correctamente</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <!-- Formulario para elegir la fecha de fin -->
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Elige una Fecha de Fin</mat-label>
+        <input matInput [matDatepicker]="pickerFin1" [(ngModel)]="fechaFin" class="form-control" placeholder="DD/MM/YYYY">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerFin1"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFin1></mat-datepicker>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <!-- Mostrar mensaje de error si el campo no es válido -->
+        <mat-error *ngIf="!fechaFin && fechaFin !== ''">Llenar campo fecha de fin correctamente</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <!-- Botón para buscar -->
+    <button class="btn btn-primary mt-3" (click)="cargarRecaudacion()">Buscar</button>
+  
+    <!-- Tabla para mostrar el reporte -->
+    <table *ngIf="recaudaciones.length > 0" class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Nombre Suscripción</th>
+          <th>Recaudación Total (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rec of recaudaciones">
+          <td>{{ rec.nombreSuscripcion }}</td>
+          <td>{{ rec.recaudacionTotal | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Mostrar un mensaje si no hay datos -->
+    <p *ngIf="recaudaciones.length === 0 && nombreSuscripcion">No se encontraron resultados para la búsqueda.</p>
+  </div>
+  

@@ -1,0 +1,18 @@
+<div class="chart-container">
+  <div style="text-align: center;">
+    <h2>Cursos Completados y No Completados</h2>  <!-- Título corto añadido -->
+  </div>
+  <div *ngIf="hayDatos; else errorMessage">
+    <canvas
+      baseChart
+      [type]="barChartType"
+      [data]="barChartData"
+      [options]="barChartOptions">
+    </canvas>
+  </div>
+  <ng-template #errorMessage>
+    <div style="text-align: center; color: red;">
+      <p>No se encontraron registros de cursos completados o no completados.</p>
+    </div>
+  </ng-template>
+</div>

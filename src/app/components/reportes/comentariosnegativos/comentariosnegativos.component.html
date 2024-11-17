@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Comentarios Negativos</h1>
+    
+    <!-- Selector de Sesiones -->
+    <mat-form-field>
+        <mat-label>Sesión</mat-label>
+        <mat-select [(ngModel)]="titulo" (selectionChange)="filtrarComentarios()">
+            <mat-option *ngFor="let m of listaSesiones" [value]="m.titulo">
+                {{m.titulo}} <!-- Mostrar el título de la sesión -->
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <!-- Tabla de Comentarios -->
+    <table *ngIf="titulo && comentarios.length > 0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Comentario</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let comentario of comentarios">
+                <td>{{ comentario.id }}</td>
+                <td>{{ comentario.comentario }}</td>
+                <td>{{ comentario.fecha | date: 'short' }}</td>
+                <td>{{ comentario.usua.username }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Mensaje de Error -->
+    <div *ngIf="titulo && comentarios.length === 0" class="error-message">
+        <div style="text-align: center; color: red;">
+        <p>No hay malos comentarios registrados para esta sesion.</p>
+    </div>
+</div>

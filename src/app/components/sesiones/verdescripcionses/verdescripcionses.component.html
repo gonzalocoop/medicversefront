@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>{{ sesion.titulo }}</h1>
+    <p><strong>Descripción:</strong> {{ sesion.descripcion }}</p>
+    <p><strong>Título del Curso:</strong> {{ sesion.cur.titulo }} </p>
+    <div>
+      <button mat-button [routerLink]="['/sesiones']">Volver a la lista</button>
+    </div>
+  </div>

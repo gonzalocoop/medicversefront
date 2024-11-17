@@ -1,0 +1,81 @@
+
+.video-container {
+  display: flex; /* Usar flexbox para organizar los elementos */
+  align-items: flex-start; /* Alinear los elementos al inicio */
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo suave */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 800px; /* Ancho máximo */
+  margin: 20px auto; /* Centrar el contenedor */
+}
+
+
+.info-container {
+  flex: 1; /* Toma el espacio disponible */
+  margin-right: 20px; /* Espacio entre el contenedor de info y el video */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  background-color: white; /* Fondo blanco */
+}
+
+
+.video-player-container {
+  flex: 1; /* Toma el espacio disponible */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 5px; /* Espaciado interno */
+}
+
+
+input[type="text"] {
+  width: calc(100% - 20px); /* Ancho del input */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+
+button {
+  padding: 10px 15px; /* Espaciado interno */
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color de texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar cursor al pasar el ratón */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+
+button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+
+.video-details {
+  margin-top: 10px; /* Espacio superior */
+}
+
+
+.video-title {
+  font-size: 24px; /* Tamaño de fuente grande */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+
+.video-description {
+  font-size: 16px; /* Tamaño de fuente para descripción */
+  color: #666; /* Color gris suave */
+}
+
+
+.video-iframe {
+  width: 100%; /* Ancho completo */
+  height: 315px; /* Altura fija */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+}

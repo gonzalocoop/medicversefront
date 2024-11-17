@@ -1,0 +1,37 @@
+mat-form-field{
+
+    width: 60%;
+
+}
+
+.custom-button {
+
+    background-color: hsl(4, 97%, 48%);   
+
+    color: white;   
+
+   }
+
+   .container{
+    text-align: center;
+    margin:5%
+   }
+
+
+   .checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  mat-checkbox {
+    --mat-checkbox-checked-color: #00bcd4; /* Celeste para el checkbox seleccionado */
+    --mat-checkbox-unchecked-color: #b2ebf2; /* Celeste claro para el checkbox sin seleccionar */
+    font-size: 16px;
+    color: #00796b; /* Verde azulado para el texto */
+  }
+  
+  mat-checkbox .mat-checkbox-label {
+    padding-left: 10px; /* Espaciado entre el cuadro del checkbox y el texto */
+  }

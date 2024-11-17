@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div><h1>Registro de Suscripciones</h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Nombre" formControlName="hnombre">
+              <!-- Mostrar mensaje de error si el campo no es válido -->
+              <mat-error *ngIf="form.controls['hnombre'].hasError('required') && form.controls['hnombre'].touched">
+                Llenar campo nombre correctamente
+              </mat-error>
+              <mat-error *ngIf="form.controls['hnombre'].hasError('maxlength') && form.controls['hnombre'].touched">
+                Máximo 20 caracteres
+              </mat-error>
+              <mat-error *ngIf="form.controls['hnombre'].hasError('tituloRepetido') && form.controls['hnombre'].touched">
+                La suscripcion ya existe. Por favor, elige uno diferente
+              </mat-error>
+          
+            </mat-form-field>
+            <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Precio</mat-label>
+                <input matInput placeholder="Precio/soles" formControlName="hprecio">
+                <mat-hint>Se debe usar "." Ejm: 15.59</mat-hint>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hprecio'].hasError('required') && form.controls['hprecio'].touched">
+                  Llenar campo precio correctamente
+                </mat-error>
+                <!-- Mostrar mensaje de error si no es un número -->
+                <mat-error *ngIf="form.controls['hprecio'].hasError('pattern') && form.controls['hprecio'].touched">
+                    Solo se permiten números positivos de dos decimales
+                </mat-error>
+                <mat-error *ngIf="form.controls['hprecio'].hasError('maxlength') && form.controls['hprecio'].touched">
+                  Máximo 6 caracateres (incluido la coma)
+                </mat-error>
+              </mat-form-field>
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

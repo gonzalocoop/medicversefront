@@ -1,0 +1,58 @@
+<div class="container">
+  <div>
+    <h1>Registro de Cursos</h1>
+  </div>
+  <div>
+    <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+      <!-- Este se usa en editar -->
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hcodigo" readonly="" />
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Titulo" formControlName="htitulo">
+        <!-- Mostrar mensaje de error si el campo no es válido -->
+        <mat-error *ngIf="form.controls['htitulo'].hasError('required') && form.controls['htitulo'].touched">
+          Llenar campo título correctamente
+        </mat-error>
+        <mat-error *ngIf="form.controls['htitulo'].hasError('maxlength') && form.controls['htitulo'].touched">
+          Máximo 35 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls['htitulo'].hasError('tituloRepetido') && form.controls['htitulo'].touched">
+          El título ya existe. Por favor, elige uno diferente
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Descripción" formControlName="hdescripcion"></textarea>
+        <!-- Mostrar mensaje de error si el campo no es válido -->
+        <mat-error *ngIf="form.controls['hdescripcion'].invalid && form.controls['hdescripcion'].touched">
+          Llenar campo descripción correctamente
+        </mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Duración en días</mat-label>
+        <input matInput type="number" placeholder="Duración/días" formControlName="hduracion">
+        <!-- Mostrar mensaje de error si el campo no es válido -->
+        <mat-error *ngIf="form.controls['hduracion'].hasError('required') && form.controls['hduracion'].touched">
+          Llenar campo duración correctamente
+        </mat-error>
+        <mat-error *ngIf="form.controls['hduracion'].hasError('pattern') && form.controls['hduracion'].touched">
+          Solo se permiten números positivos de hasta dos digitos
+        </mat-error>
+       
+      </mat-form-field>
+
+      <div class>
+        <button mat-flat-button>Aceptar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div *ngIf="verificar()">
+    <div>
+        <h1>Tabla De Usuarios</h1>
+    </div>
+    <div class="roles-container">
+        <div *ngFor="let usuario of pagedUsuarios" class="usuario-card">
+            <mat-card class="roles-card__content">
+                <mat-card-header class="roles-card-header">
+                    <mat-card-title>{{ usuario.username }}</mat-card-title>
+                    <mat-card-subtitle>Id: {{ usuario.id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Email:</strong> {{ usuario.email }}</p>
+                    <p><strong>Rol:</strong> {{ usuario.rol.nombre }}</p>
+                    <p *ngIf="isAdmin()"><strong>¿La cuenta está activa?:</strong> {{ usuario.activo }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button color="warn" *ngIf="isAdmin()" (click)="eliminar(usuario.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" [routerLink]="['ediciones', usuario.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+    <!-- Paginador -->
+    <mat-paginator [length]="usuarios.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

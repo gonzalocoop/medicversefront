@@ -1,0 +1,36 @@
+<div>
+    <div>
+        <h1>Tabla De Comentarios</h1>
+    </div>
+    <div class="curso-container">
+        <div *ngFor="let comentario of pagedComentarios" class="curso-card">
+            <mat-card class="curso-card__content">
+                <mat-card-header class="curso-card-header">
+                    <mat-card-title>{{ comentario.usua.username }}</mat-card-title>
+                    <mat-card-subtitle>Id del comentario: {{ comentario.id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Título de la sesion:</strong> {{ comentario.ses.titulo }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button color="warn" (click)="eliminar(comentario.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" [routerLink]="['ediciones', comentario.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" [routerLink]="['vercoment', comentario.id]">
+                        <mat-icon> comment</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+    <!-- Paginador -->
+    <mat-paginator [length]="comentarios.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

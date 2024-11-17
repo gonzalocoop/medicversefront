@@ -1,0 +1,44 @@
+/* Estilo general del contenedor */
+.chart-container {
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  /* Tamaño específico para gráficos tipo pie */
+  .chart-container-pie {
+    width: 35%; /* Ajusta según sea necesario */
+  }
+  
+  /* Tamaño específico para gráficos tipo bar */
+  .chart-container-bar {
+    width: 70%; /* Mayor ancho para gráficos de barras */
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .chart-container-pie,
+    .chart-container-bar {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  
+  /* Estilos del título */
+  .title-container {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  
+  
+  
+  h1 {
+    text-align: center;
+    color: #226c7f; /* Cambia este valor para el color del título */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+  }

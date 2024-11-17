@@ -1,0 +1,66 @@
+<div class="container" *ngIf="verificar()">
+    <div>
+        <h1>Registro de Comentarios</h1>
+    </div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Codigo</mat-label>
+                <input matInput formControlName="hcodigo" readonly="" />
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Comentario</mat-label>
+                <textarea matInput placeholder="Comentario" formControlName="hcomentario"></textarea>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error
+                    *ngIf="form.controls['hcomentario'].hasError('required') && form.controls['hcomentario'].touched">
+                    Llenar campo comentario correctamente
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field *ngIf="isAdmin()">
+                <mat-label>Elige una fecha (Fecha de Agregado)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="hfecha">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfecha'].invalid && form.controls['hfecha'].touched">
+                    Llenar campo fecha correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>Sesión</mat-label>
+                <mat-select formControlName="hsesiones">
+                    @for (m of listaSesiones; track m) {
+                    <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+                    }
+                </mat-select>
+                <mat-error *ngIf="form.controls['hsesiones'].hasError('required') && form.controls['hsesiones'].touched">
+                    Llenar campo sesión correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="husuarios">
+                    @for (m of listaUsuarios; track m) {
+                    <mat-option [value]="m.id">{{m.username}}</mat-option>
+                    }
+                </mat-select>
+                <mat-error *ngIf="form.controls['husuarios'].hasError('required') && form.controls['husuarios'].touched">
+                    Llenar campo usuario correctamente
+                </mat-error>
+            </mat-form-field>
+            <div class>
+                <button mat-flat-button>Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>

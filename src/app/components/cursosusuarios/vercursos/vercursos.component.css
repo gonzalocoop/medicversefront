@@ -1,0 +1,144 @@
+/* Contenedor principal */
+.container {
+    background-color: #e3f2fd; /* Celeste suave */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centrar el contenido */
+}
+
+/* Estilo del título */
+h1 {
+    color: #1565c0; /* Azul */
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+/* Estilo del título */
+h2 {
+    color: #5291da; /* Azul */
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Estilo de los párrafos */
+p {
+    color: #333; /* Color del texto */
+    font-family: 'Verdana', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Negrita para el texto destacado */
+strong {
+    color: #1565c0; /* Azul para texto destacado */
+}
+
+/* Botón volver */
+button {
+    background-color: #ffffff; /* Blanco */
+    color: #1565c0; /* Azul */
+    border: 2px solid #1565c0; /* Bordes azul */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    margin-top: 20px;
+}
+
+/* Efecto hover para el botón */
+button:hover {
+    background-color: #1565c0; /* Cambia a azul al pasar el ratón */
+    color: #ffffff; /* Texto blanco en hover */
+}
+
+/* Sombra para el botón */
+button:focus {
+    outline: none; /* Quitar contorno por defecto */
+    box-shadow: 0 0 5px rgba(22, 50, 145, 0.5); /* Sombra en el enfoque */
+}
+
+div {
+    margin: 20px;
+    background-color: #e3f2fd; 
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #1565c0; 
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.curso-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar las tarjetas */
+    gap: 16px; /* Espaciado entre las tarjetas */
+}
+
+.curso-card {
+    width: calc(33% - 16px); /* Ajustar el ancho de las tarjetas */
+}
+
+.curso-card__content {
+    background-color: white; /* Fondo blanco para las tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.curso-card-header {
+    background-color: #b7d0f5 !important; /* Fondo celeste para el encabezado */
+    border-top-left-radius: 8px; /* Bordes redondeados */
+    border-top-right-radius: 8px; /* Bordes redondeados */
+    padding: 16px; /* Espaciado interno */
+}
+
+
+.container {
+    padding: 10px;
+}
+  
+header {
+    margin-bottom: 5px; /* Reducir el espacio inferior */
+    font-size: 16px; /* Ajustar el tamaño de la fuente si es necesario */
+    line-height: 1; 
+}
+  
+.user-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las columnas */
+}
+  
+.user-details {
+    flex: 1 1 calc(50% - 20px); /* Dos columnas con un espacio entre ellas */
+    min-width: 300px; /* Mínimo ancho para mantener un diseño adecuado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+  
+.selected-user {
+    margin-top: 20px; /* Espacio encima del usuario seleccionado */
+}
+
+.botones {
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    margin-top: 20px; /* Espacio superior opcional */
+  }
+  
+  .botones-container {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    align-items: center; /* Alinea verticalmente en el centro */
+  }
+  

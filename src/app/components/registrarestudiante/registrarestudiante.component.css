@@ -1,0 +1,22 @@
+mat-form-field {
+    width: 60%;
+}
+
+.custom-button {
+    background-color: hsl(234, 97%, 48%);
+    color: white;
+    margin: 0 10px; /* Espaciado horizontal entre los botones */
+}
+
+.container {
+    text-align: center;
+    margin: 5%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 20px; /* Espacio entre botones */
+    margin-top: 20px; /* Separación con los campos anteriores */
+}
+

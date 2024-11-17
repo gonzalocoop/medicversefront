@@ -1,0 +1,78 @@
+
+<div class="container" *ngIf="verificar()">
+    <div><h1>Registro de Suscripciones de Usuario </h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+            
+         
+            <br>
+            <mat-form-field *ngIf="isAdmin()">
+                <mat-label>Elige una Fecha de Inicio</mat-label>
+                <input matInput [matDatepicker]="pickerInicio1" formControlName="hfechaInicio">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerInicio1"></mat-datepicker-toggle>
+                <mat-datepicker #pickerInicio1></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfechaInicio'].invalid && form.controls['hfechaInicio'].touched">
+                  Llenar campo fecha de inicio correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field *ngIf="isAdmin()">
+                <mat-label>Elige una Fecha de Final</mat-label>
+                <input matInput [matDatepicker]="pickerFinal2" formControlName="hfechaFin">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFinal2"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFinal2></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfechaFin'].hasError('required') && form.controls['hfechaFin'].touched">
+                   Llenar campo fecha final correctamente
+                </mat-error>
+                <!-- Mostrar mensaje personalizado si la fecha de fin es menor que la fecha de inicio -->
+                  <mat-error *ngIf="form.controls['hfechaFin'].hasError('fechaFinPosteriorAFechaInicioValidator') && form.controls['hfechaFin'].touched">
+                  La fecha final no puede ser anterior a la fecha de inicio. Volver a seleccionar esta fecha si hace cambios en fecha inicial
+                  </mat-error>
+            </mat-form-field>
+          <br>
+
+            
+            <mat-form-field>
+                <mat-label>Suscripción</mat-label>
+                <mat-select formControlName="hsuscripciones">
+                  @for (m of listaSuscripciones; track m) {
+                    <mat-option [value]="m.id">{{m.nombre}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['hsuscripciones'].hasError('required') && form.controls['hsuscripciones'].touched">
+                  Llenar campo suscripción correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="husuario">
+                  @for (m of listaUsuarios; track m) {
+                    <mat-option [value]="m.id">{{m.username}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['husuario'].hasError('required') && form.controls['husuario'].touched">
+                  Llenar campo usuario correctamente
+                </mat-error>
+                <mat-error *ngIf="form.controls['husuario'].hasError('usuarioYaTieneSuscripcion') && form.controls['husuario'].touched">
+                  El usuario ya tiene una suscripción
+                  </mat-error>
+            </mat-form-field>
+            <br>
+              
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

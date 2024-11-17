@@ -1,0 +1,57 @@
+<div class="container">
+    <div>
+      <h1>Registro de Sesiones</h1>
+    </div>
+    <div>
+      <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+        <!-- Este se usa en editar -->
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="hcodigo" readonly="" />
+        </mat-form-field>
+  
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Titulo</mat-label>
+          <input matInput placeholder="Titulo" formControlName="htitulo">
+          <!-- Mostrar mensaje de error si el campo no es válido -->
+          <mat-error *ngIf="form.controls['htitulo'].hasError('required') && form.controls['htitulo'].touched">
+            Llenar campo título correctamente
+          </mat-error>
+          <mat-error *ngIf="form.controls['htitulo'].hasError('maxlength') && form.controls['htitulo'].touched">
+            Máximo 35 caracteres
+          </mat-error>
+          <mat-error *ngIf="form.controls['htitulo'].hasError('tituloRepetido') && form.controls['htitulo'].touched">
+            El título ya existe. Por favor, elige uno diferente
+          </mat-error>
+        </mat-form-field>
+  
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder="Descripción" formControlName="hdescripcion"></textarea>
+          <!-- Mostrar mensaje de error si el campo no es válido -->
+          <mat-error *ngIf="form.controls['hdescripcion'].invalid && form.controls['hdescripcion'].touched">
+            Llenar campo descripción correctamente
+          </mat-error>
+        </mat-form-field>
+        <br>
+  
+        <mat-form-field>
+            <mat-label>Curso</mat-label>
+            <mat-select formControlName="hcurso">
+              @for (m of listaCursos; track m) {
+                <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+              }   
+            </mat-select>
+            <mat-error *ngIf="form.controls['hcurso'].hasError('required') && form.controls['hcurso'].touched">
+                Llenar campo curso correctamente
+              </mat-error>
+        </mat-form-field>
+  
+        <div class>
+          <button mat-flat-button>Aceptar</button>
+        </div>
+      </form>
+    </div>
+  </div>

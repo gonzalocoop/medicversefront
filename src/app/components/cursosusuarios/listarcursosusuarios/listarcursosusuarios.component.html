@@ -1,0 +1,39 @@
+<div *ngIf="verificar()">
+    <div>
+        <h1>Tabla De Cursos de los Usuaros</h1>
+    </div>
+    <div class="curso-container">
+        <div *ngFor="let curUsu of pagedCursosUsuarios" class="curso-card">
+            <mat-card class="curso-card__content">
+                <mat-card-header class="curso-card-header">
+                    <mat-card-title>{{ curUsu.cur.titulo }}</mat-card-title>
+                    <mat-card-subtitle>Id del curso: {{ curUsu.cur.id }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Progreso:</strong> {{ curUsu.progreso }}</p>
+                    <p><strong>Fecha de Inicio Recomendada:</strong> {{ curUsu.fechaInicio| date: 'dd/MM/yyyy' }}</p>
+                    <p><strong>Fecha de Final Recomendada:</strong> {{ curUsu.fechaFin| date: 'dd/MM/yyyy' }}</p>
+                    <p><strong>Estado:</strong> {{ curUsu.estado }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button color="warn" *ngIf="isAdmin()" (click)="eliminar(curUsu.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" *ngIf="isAdmin()" [routerLink]="['ediciones', curUsu.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" [routerLink]="['vercursos', curUsu.id]">
+                        <mat-icon> import_contacts</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="mensaje" style="color: red;">{{ mensaje }}</div>
+    <!-- Paginador -->
+    <mat-paginator [length]="cursosUsuarios.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

@@ -1,0 +1,77 @@
+<div class="container">
+    <div><h1>Registro de Cronogramas</h1></div>
+    <div>
+        <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+            <!-- Este se usa en editar -->
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput formControlName="hcodigo" readonly=""/>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Detalle</mat-label>
+              <textarea matInput placeholder="Detalle" formControlName="hdetalle"></textarea>
+              <!-- Mostrar mensaje de error si el campo no es válido -->
+              <mat-error *ngIf="form.controls['hdetalle'].invalid && form.controls['hdetalle'].touched">
+                Llenar campo detalle correctamente
+              </mat-error>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field>
+                <mat-label>Elige una Fecha Límite</mat-label>
+                <input matInput [matDatepicker]="pickerLimite" formControlName="hfechaLimite">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerLimite"></mat-datepicker-toggle>
+                <mat-datepicker #pickerLimite></mat-datepicker>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hfechaLimite'].invalid && form.controls['hfechaLimite'].touched">
+                    Llenar campo fecha límite correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="hEstado">
+                  @for (m of listaEstados; track m) {
+                    <mat-option [value]="m.value">{{m.viewValue}}</mat-option>
+                  }
+                </mat-select>
+                <!-- Mostrar mensaje de error si el campo no es válido -->
+                <mat-error *ngIf="form.controls['hEstado'].invalid && form.controls['hEstado'].touched">
+                  Llenar campo estado correctamente
+                </mat-error>
+              </mat-form-field>
+
+            <br>
+            <mat-form-field>
+                <mat-label>Curso del Usuario</mat-label>
+                <mat-select formControlName="hCursoUsuario">
+                  @for (m of listaCursosUsuarios; track m) {
+                    <mat-option [value]="m.id">{{m.cur.titulo}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['hCursoUsuario'].hasError('required') && form.controls['hCursoUsuario'].touched">
+                  Llenar campo curso del usuario correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Sesión</mat-label>
+                <mat-select formControlName="hSesiones">
+                  @for (m of listaSesiones; track m) {
+                    <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+                  }   
+                </mat-select>
+                <mat-error *ngIf="form.controls['hSesiones'].hasError('required') && form.controls['hSesiones'].touched">
+                  Llenar campo sesión correctamente
+                </mat-error>
+            </mat-form-field>
+            <br>
+              
+              <div class>
+                <button mat-flat-button>Aceptar</button>
+              </div>
+        </form>
+    </div>
+</div>

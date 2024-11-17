@@ -1,0 +1,30 @@
+.welcome-container {
+    margin: 20px;
+    padding: 40px;
+    background-color: #e3f2fd;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.welcome-container h1 {
+    color: #1565c0;
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 18px;
+    color: #0d47a1;
+    font-family: 'Verdana', sans-serif;
+    margin-bottom: 10px;
+}
+
+.instructions {
+    font-size: 16px;
+    color: #0d47a1;
+    font-family: 'Verdana', sans-serif;
+    margin-bottom: 20px;
+}
+

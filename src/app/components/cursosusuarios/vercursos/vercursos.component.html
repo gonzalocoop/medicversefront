@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="header">
+    <h1><strong>ID del curso Usuario:</strong> {{ cursousuario.id }}</h1>
+    <h1><strong>Nombre del Curso:</strong> {{ cursousuario.cur.titulo }}</h1>
+    <h2><strong>ID del Curso:</strong> {{ cursousuario.cur.id }}</h2>
+    <button mat-button [routerLink]="['/cursosusuarios']">Volver a la lista</button>
+  </div>
+    <div class="user-info">
+      <div class="user-details">
+        <h1><strong>Username del Usuario:</strong> {{ cursousuario.usua.username }}</h1>
+        <h2><strong>ID del Usuario:</strong> {{ cursousuario.usua.id }} </h2>
+        <p><strong>Progreso:</strong> {{ cursousuario.progreso }} %</p>
+        <p><strong>Fecha de Inicio:</strong> {{ cursousuario.fechaInicio | date: 'dd/MM/yyyy'}} </p>
+        <p><strong>Fecha de Final:</strong> {{ cursousuario.fechaFin | date: 'dd/MM/yyyy'}} </p>
+        <p><strong>Estado:</strong> {{ cursousuario.estado }} </p>
+      </div>
+    </div>
+  
+  
+
+    <div class="curso-container">
+      <div *ngFor="let sesion of pagedSesiones" class="curso-card">
+          <mat-card class="curso-card__content">
+              <mat-card-header class="curso-card-header">
+                  <mat-card-title>{{ sesion.titulo }}</mat-card-title>
+                  <mat-card-subtitle>Id: {{ sesion.id }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                  <p><strong>Descripción de la sesión:</strong> {{ sesion.descripcion }}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-icon-button color="warn" [routerLink]="['/cursosusuarios/vervideos',cursousuario.id ,sesion.id]">
+                  <mat-icon>video_call</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" [routerLink]="['/cursosusuarios/vercomentses',cursousuario.id,sesion.id]">
+                  <mat-icon> chat</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="actualizar(sesion.id, cursousuario.id)">
+                  <mat-icon>check_circle</mat-icon>
+              </button>
+                
+              </mat-card-actions>
+          </mat-card>
+      </div>
+      
+</div>
+<div class="botones">
+  <div class="botones-container">
+    <button mat-icon-button color="warn" (click)="redirectToURL()">
+      <mat-icon>share</mat-icon>
+    </button>
+    
+  </div>
+</div>
+
+

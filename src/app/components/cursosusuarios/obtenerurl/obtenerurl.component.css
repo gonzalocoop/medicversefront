@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #87CEFA, #FFFFFF); /* Gradient background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden; /* Prevents overflow from animations */
+    position: relative; /* Position for animation effects */
+    animation: pop-in 0.5s ease-out; /* Animation for container */
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.header h1 {
+    color: #007bff;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 123, 255, 0.3); /* Enhanced shadow */
+    animation: bounce 1s infinite; /* Infinite bounce animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.message p {
+    color: #333;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    animation: fade-in 1s; /* Fade-in animation */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.url-container {
+    background-color: #e6f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px dashed #007bff; /* Dashed border */
+    animation: slide-in 0.5s; /* Slide-in animation */
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.url {
+    font-size: 1.1em;
+    color: #007bff;
+    word-wrap: break-word;
+    font-weight: bold; /* Bold URL for emphasis */
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4); /* Shadow on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,47 @@
+<div class="container">
+    <div><h1>Registro de Videos Favoritos</h1></div>
+    <div>
+      <form [formGroup]="form" (submit)="aceptar()">
+        <!-- Campo de código para edición -->
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="hcodigo" readonly />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="husuarios">
+            @for (m of listaUsuarios; track m) {
+              <mat-option [value]="m.id">{{m.username}}</mat-option>
+            }   
+          </mat-select>
+          <mat-error *ngIf="form.controls['husuarios'].hasError('required') && form.controls['husuarios'].touched">
+            Llenar campo usuario correctamente
+          </mat-error>
+      </mat-form-field>       
+  
+
+      <mat-form-field>
+        <mat-label>Video</mat-label>
+        <mat-select formControlName="hvideos">
+          @for (m of listaVideos; track m) {
+            <mat-option [value]="m.id">{{m.titulo}}</mat-option>
+          }   
+        </mat-select>
+        <mat-error *ngIf="form.controls['hvideos'].hasError('required') && form.controls['hvideos'].touched">
+          Llenar campo video correctamente
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Error personalizado si el usuario ya tiene este video como favorito -->
+    <mat-error *ngIf="form.hasError('usuarioYaTieneEseVideoFavorito') && form.touched">
+      Este usuario ya tiene este video como favorito.
+    </mat-error>
+    
+    <div class>
+      <button mat-flat-button>Aceptar</button>
+    </div>
+      </form>
+    </div>
+  </div>    
+  

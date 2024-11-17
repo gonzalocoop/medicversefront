@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Reporte de Títulos de Sesiones y Videos</h1>
+
+    <!-- Tabla para mostrar los datos de sesiones y videos -->
+    <table *ngIf="sesionesVideos.length > 0" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título Sesión</th>
+                <th>Título Video</th>
+                <th>Duración Video (min)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sesion of sesionesVideos">
+                <td>{{ sesion.tituloSesion }}</td>
+                <td>{{ sesion.tituloVideo }}</td>
+                <td>{{ sesion.duracionVideo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Mostrar un mensaje si no hay datos -->
+    <p *ngIf="sesionesVideos.length === 0">No hay datos disponibles para mostrar.</p>
+</div>

@@ -1,0 +1,29 @@
+.custom-toolbar {
+
+    background-color: #226c7f; 
+  
+    color: white; 
+  
+   }
+  
+  
+  
+   .custom-menu-item {  
+  
+    color: rgb(0, 0, 0); 
+  
+    &:hover {
+  
+     color: rgb(99, 12, 12); 
+  
+    }
+  
+   }
+
+   .left-menu {
+    display: flex; /* Permite alinear los botones horizontalmente */
+  }
+  
+  .right-menu {
+    margin-left: auto; /* Empuja el menú de usuarios a la derecha */
+  }

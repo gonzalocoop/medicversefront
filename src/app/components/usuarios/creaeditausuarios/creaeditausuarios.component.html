@@ -1,0 +1,78 @@
+<div class="container" *ngIf="verificar()">
+    <div>
+      <h1>Registro de Usuarios</h1>
+    </div>
+    <div>
+      <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+        <!-- Este se usa en editar -->
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="hcodigo" readonly="" />
+        </mat-form-field>
+  
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput placeholder="Username" formControlName="husername">
+          <!-- Mostrar mensaje de error si el campo no es válido -->
+          <mat-error *ngIf="form.controls['husername'].hasError('required') && form.controls['husername'].touched">
+            Llenar campo nombre de usuario correctamente
+          </mat-error>
+          <mat-error *ngIf="form.controls['husername'].hasError('maxlength') && form.controls['husername'].touched">
+            Máximo 20 caracteres
+          </mat-error>
+          <mat-error *ngIf="form.controls['husername'].hasError('usernameRepetido') && form.controls['husername'].touched">
+            El nombre de usuario ya existe. Por favor, elija uno diferente
+          </mat-error>
+        </mat-form-field>
+  
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="hpassword"
+            [type]="isAdmin() ? 'text' : 'password'"
+           />
+          <!-- Mostrar mensaje de error si el campo no es válido -->
+          <mat-error *ngIf="form.controls['hpassword'].hasError('required') && form.controls['hpassword'].touched">
+            Llenar campo contraseña correctamente
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Correo</mat-label>
+            <input matInput placeholder="Email" formControlName="hemail">
+            <!-- Mostrar mensaje de error si el campo no es válido -->
+            <mat-error *ngIf="form.controls['hemail'].hasError('required') && form.controls['hemail'].touched">
+              Llenar campo email correctamente
+            </mat-error>
+            <mat-error *ngIf="form.controls['hemail'].hasError('pattern') && form.controls['hemail'].touched">
+              Solo se permiten correos con estructura valida
+            </mat-error>
+          </mat-form-field>
+          
+          <br>
+        <mat-form-field *ngIf="isAdmin()">
+            <mat-label>Rol</mat-label>
+            <mat-select formControlName="hrol" >
+              @for (m of listaRoles; track m) {
+                <mat-option [value]="m.id">{{m.nombre}}</mat-option>
+              }   
+            </mat-select>
+            <mat-error *ngIf="form.controls['hrol'].hasError('required') && form.controls['hrol'].touched">
+                Llenar campo rol correctamente
+              </mat-error>
+        </mat-form-field>
+        <br>
+        <div class="checkbox-container" *ngIf="edicion && isAdmin()">
+          <mat-checkbox formControlName="hactivo">¿El usario está activado?</mat-checkbox>
+        </div>
+        <div class>
+          <button mat-flat-button>Aceptar</button>
+        </div>
+      </form>
+    </div>
+  </div>

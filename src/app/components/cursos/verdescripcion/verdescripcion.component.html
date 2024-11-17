@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>{{ curso.titulo }}</h1>
+    <p><strong>Descripción:</strong> {{ curso.descripcion }}</p>
+    <p><strong>Duración:</strong> {{ curso.duracion }} días</p>
+    <div>
+      <button mat-button [routerLink]="['/cursos']">Volver a la lista</button>
+    </div>
+  </div>

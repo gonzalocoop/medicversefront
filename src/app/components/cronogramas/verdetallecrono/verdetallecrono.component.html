@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>{{ Cronogramas.detalle }}</h1>
+    <p><strong>Fecha Limite:</strong> {{ Cronogramas.fechaLimite | date: 'dd/MM/yyyy'}}</p>
+    <p><strong>Estado:</strong> {{ Cronogramas.estado }}</p>
+    <p><strong>Título del Curso:</strong> {{ Cronogramas.curUsu.cur.titulo }}</p>
+    <p><strong>Título de la Sesión:</strong> {{ Cronogramas.ses.titulo }}</p>
+    <div>
+      <button mat-button [routerLink]="['/cronogramas']">Volver a la lista</button>
+    </div>
+  </div>

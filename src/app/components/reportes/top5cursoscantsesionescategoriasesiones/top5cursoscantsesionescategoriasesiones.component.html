@@ -1,0 +1,43 @@
+<div>
+  <div style="text-align: center;">
+    <h1>Top 5 cursos con más sesiones y su categoría</h1>
+  </div>
+
+  <!-- Gráfico -->
+  <div *ngIf="hayDatos; else errorMessage" class="chart-container" style="text-align: center;">
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [type]="barChartType">
+    </canvas>
+  </div>
+
+  <!-- Mensaje de error -->
+  <ng-template #errorMessage>
+    <div style="text-align: center; color: red;">
+      <p>No hay cursos registrados ni sesiones para mostrar.</p>
+    </div>
+  </ng-template>
+
+  <!-- Leyenda explicativa -->
+  <div *ngIf="hayDatos" class="category-legend" style="text-align: center; margin-top: 20px;">
+    <ul>
+      <li><strong>Leyenda:</strong></li>
+      <li>
+        <span style="background-color: #A1887F; padding: 5px 10px; color: white;">&nbsp;</span>
+        Menos de 3 sesiones (Bajo)
+      </li>
+      <li>
+        <span style="background-color: #FFE57F; padding: 5px 10px; color: white;">&nbsp;</span>
+        Entre 3 y 5 sesiones (Medio)
+      </li>
+      <li>
+        <span style="background-color: #B2DFDB; padding: 5px 10px; color: white;">&nbsp;</span>
+        Más de 5 sesiones (Alto)
+      </li>
+    </ul>
+  </div>
+</div>

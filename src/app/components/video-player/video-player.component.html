@@ -1,0 +1,20 @@
+<div class="video-container">
+  <div class="info-container">
+    <input type="text" [(ngModel)]="inputVideoId" placeholder="Ingresa el VIDEO ID" />
+    <button (click)="loadVideo()">Cargar Video</button>
+    
+    <div *ngIf="videoDetails" class="video-details">
+      <h2 class="video-title">{{ videoDetails.title }}</h2>
+      <p class="video-description">{{ videoDetails.description }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="videoDetails" class="video-player-container">
+    <iframe
+      [src]="sanitizedVideoUrl"
+      frameborder="0"
+      allowfullscreen
+      class="video-iframe">
+    </iframe>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div>
+        <button mat-button [routerLink]="['/cursosusuarios/vercursos', idCursoUsuario]">Volver a la lista</button>
+    </div>
+    <div *ngFor="let comentario of pagedComentarios" class="curso-card">
+        <mat-card class="curso-card__content">
+            <mat-card-header class="curso-card-header">
+                <mat-card-title>Id: {{ comentario.id }}</mat-card-title>
+                <mat-card-title>Usuario: {{ comentario.usua.username }}</mat-card-title>
+                <mat-card-title>Fecha: {{ comentario.fecha | date: 'dd/MM/yyyy'}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p><strong>Comentario:</strong> {{ comentario.comentario }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <!-- Paginador -->
+    <mat-paginator [length]="comentarios.length"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

@@ -1,0 +1,22 @@
+<div style="text-align: center;">
+  <h1>Porcentaje de Cursos de Usuarios Completados y No Completados en General</h1>
+</div>
+
+<!-- Mostrar el mensaje de error si no hay datos -->
+<div *ngIf="noData; else chart" style="text-align: center; color: red; font-size: 18px;">
+  <p>No se encontraron cursos registrados.</p>
+</div>
+
+<!-- Mostrar el gráfico si hay datos -->
+<ng-template #chart>
+  <div class="chart-container" style="text-align: center;">
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="true"
+      [type]="barChartType"
+    ></canvas>
+  </div>
+</ng-template>

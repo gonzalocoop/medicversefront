@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Información del Comentario</h1>
+    <p><strong>Título de sesión:</strong> {{ comentarios.ses.titulo }}</p>
+    <p><strong>Id de sesión:</strong> {{ comentarios.ses.id }} </p>
+    <p><strong>Nombre del usuario:</strong> {{ comentarios.usua.username }} </p>
+    <p><strong>Id del usuario:</strong> {{ comentarios.usua.id }} </p>
+    <p><strong>Fecha:</strong> {{ comentarios.fecha | date: 'dd/MM/yyyy'}}</p>
+    <p><strong>Comentario:</strong> {{ comentarios.comentario }}</p>
+    <div>
+      <button mat-button [routerLink]="['/comentarios']">Volver a la lista</button>
+    </div>
+  </div>
