@@ -41,13 +41,13 @@
       <thead>
         <tr>
           <th>Nombre Suscripción</th>
-          <th>Recaudación Total (PE)</th>
+          <th>Recaudación Total (PEN)</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let rec of recaudaciones">
           <td>{{ rec.nombreSuscripcion }}</td>
-          <td>{{ rec.recaudacionTotal | currency }}</td>
+          <td>{{ rec.recaudacionTotal | currency:'PEN' }}</td>
         </tr>
       </tbody>
     </table>
